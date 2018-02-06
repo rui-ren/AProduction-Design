@@ -1,0 +1,30 @@
+% IPR OPR curve for production system
+
+Code:
+g = 32.17405;
+ d = input(diameter pipe: ');
+ P = input(pressure of separator: ');
+ gc = 32.17405;
+f = 0.004;
+g = 32.17405;
+e_d = input(‘ density of oil: ');
+ L = input( ‘length of well: ');
+J = input(PI: ');
+ Pr_reservoir = input(reservoir pressure:  ');
+
+ A = P_sep + (g*e_density*L)/144/gc);
+ B = 8*f*e_d*L/(144*pi^2*gc*d^5);
+ T = ((P_sep - A)/B)^(-2);
+ Qsc_initial = T;
+ 
+ TP = linspace(0,Qsc_max,100); 
+ P_production = zeros(1,100);
+ 
+ for i = 1:100
+ P_production(i) = A + B*TP(i)^2;
+ End
+plot(TP,P_production)
+hold on
+Q_m = Pr_reservoir*J;
+ Pwf_max = Pr_reservoir;
+plot([Qsc_max 0],[0 Pwf_max]);
